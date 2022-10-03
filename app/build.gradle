@@ -53,6 +53,7 @@ dependencies {
 
     def room_version = "2.4.3"
     def kodein_version = "6.4.0"
+    def koin_version = "3.2.2"
     def lifecycle_version = "2.0.0"
 
     // Room and Architectural Components
@@ -75,7 +76,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
-    // Kodein
-    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
-    implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
+    // Koin
+    implementation "io.insert-koin:koin-core:$koin_version"
+    // Koin main features for Android (Scope,ViewModel,Fragment ...)
+    implementation "io.insert-koin:koin-android:$koin_version"
+    // Koin Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
 }

@@ -14,7 +14,7 @@ abstract class ShoppingDatabase : RoomDatabase() {
 
     abstract fun getShoppingDao(): ShoppingDao
 
-    companion object {
+    /*companion object {
         @Volatile
         private var instance: ShoppingDatabase? = null
         private val LOCK = Any()
@@ -31,5 +31,5 @@ abstract class ShoppingDatabase : RoomDatabase() {
                 "shopping_db.db"
             ).build()
 
-    }
+    }*/
 }

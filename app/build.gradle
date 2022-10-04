@@ -52,7 +52,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     def room_version = "2.4.3"
-    def kodein_version = "6.5.5"
+    def kodein_version = "7.15.0-kotlin-1.7.20-RC"
     def lifecycle_version = "2.0.0"
 
     // Room and Architectural Components
@@ -76,6 +76,7 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     // Kodein
-    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+    //implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
     implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
+    //implementation("org.kodein.di:kodein-di:7.15.0-kotlin-1.7.20-RC")
 }

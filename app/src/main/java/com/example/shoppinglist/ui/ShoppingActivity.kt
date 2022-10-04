@@ -13,18 +13,19 @@ import com.example.shoppinglist.model.ShoppingItem
 import com.example.shoppinglist.ui.dialog.AddShoppingItemDialog
 import com.example.shoppinglist.ui.dialog.AddShoppingItemListener
 import com.example.shoppinglist.viewmodels.ShoppingViewModel
-import org.kodein.di.Kodein
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.closestKodein
-import org.kodein.di.generic.instance
+import org.kodein.di.DI
+import org.kodein.di.DIAware
+import org.kodein.di.android.closestDI
+import org.kodein.di.instance
 
-class ShoppingActivity : AppCompatActivity(), KodeinAware {
+class ShoppingActivity : AppCompatActivity(), DIAware {
 
     lateinit var binding: ActivityShoppingListBinding
     lateinit var viewModel: ShoppingViewModel
     lateinit var adapter: ShoppingAdapter
 
-    override val kodein: Kodein by closestKodein()
+    override val di: DI by closestDI()
+    //override val kodein: Kodein by closestKodein()
     private val factory: ShoppingViewModelFactory by instance()
 
     @SuppressLint("NotifyDataSetChanged")
@@ -66,5 +67,4 @@ class ShoppingActivity : AppCompatActivity(), KodeinAware {
             layoutManager = LinearLayoutManager(applicationContext)
         }
     }
-
 }

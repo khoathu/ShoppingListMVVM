@@ -1,8 +1,6 @@
 package com.example.shoppinglist.db
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.shoppinglist.model.ShoppingItem
 
@@ -14,7 +12,7 @@ abstract class ShoppingDatabase : RoomDatabase() {
 
     abstract fun getShoppingDao(): ShoppingDao
 
-    companion object {
+    /*companion object {
         @Volatile
         private var instance: ShoppingDatabase? = null
         private val LOCK = Any()
@@ -31,5 +29,5 @@ abstract class ShoppingDatabase : RoomDatabase() {
                 "shopping_db.db"
             ).build()
 
-    }
+    }*/
 }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppinglist.adapter.ShoppingAdapter
 import com.example.shoppinglist.databinding.ActivityShoppingListBinding
@@ -21,12 +20,14 @@ import org.kodein.di.instance
 class ShoppingActivity : AppCompatActivity(), DIAware {
 
     lateinit var binding: ActivityShoppingListBinding
-    lateinit var viewModel: ShoppingViewModel
     lateinit var adapter: ShoppingAdapter
 
     override val di: DI by closestDI()
+
+    private val viewModel: ShoppingViewModel by instance()
+
     //override val kodein: Kodein by closestKodein()
-    private val factory: ShoppingViewModelFactory by instance()
+    //private val factory: ShoppingViewModelFactory by instance()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,8 +37,8 @@ class ShoppingActivity : AppCompatActivity(), DIAware {
 
         //val repository = ShoppingRepository(ShoppingDatabase(applicationContext))
         //val factory = ShoppingViewModelFactory(repository)
+        //viewModel = ViewModelProvider(this, factory).get(ShoppingViewModel::class.java)
 
-        viewModel = ViewModelProvider(this, factory).get(ShoppingViewModel::class.java)
         setupRecycleView()
 
         viewModel.getShoppingItems().observe(this, Observer {

@@ -7,7 +7,7 @@ import com.example.shoppinglist.repository.ShoppingRepository
 import kotlinx.coroutines.launch
 
 class ShoppingViewModel(
-    val shoppingRepository: ShoppingRepository
+    private val shoppingRepository: ShoppingRepository
 ) : ViewModel() {
 
     fun upsertShoppingItem(item: ShoppingItem) = viewModelScope.launch {

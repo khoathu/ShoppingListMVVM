@@ -4,7 +4,7 @@ import com.example.shoppinglist.db.ShoppingDatabase
 import com.example.shoppinglist.model.ShoppingItem
 
 class ShoppingRepository(
-    val db: ShoppingDatabase
+    private val db: ShoppingDatabase
 ) {
 
     suspend fun upsertShoppingItem(item: ShoppingItem) = db.getShoppingDao().upsert(item)

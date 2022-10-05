@@ -1,15 +1,12 @@
 package com.example.shoppinglist.repository
 
-import com.example.shoppinglist.db.ShoppingDatabase
+import androidx.lifecycle.LiveData
 import com.example.shoppinglist.model.ShoppingItem
 
-class ShoppingRepository(
-    val db: ShoppingDatabase
-) {
+interface ShoppingRepository {
+    suspend fun upsertShoppingItem(item: ShoppingItem): Long
 
-    suspend fun upsertShoppingItem(item: ShoppingItem) = db.getShoppingDao().upsert(item)
+    suspend fun deleteShoppingItem(item: ShoppingItem)
 
-    suspend fun deleteShoppingItem(item: ShoppingItem) = db.getShoppingDao().delete(item)
-
-    fun getShoppingItems() = db.getShoppingDao().getAllShoppingItems()
+    fun getShoppingItems(): LiveData<List<ShoppingItem>>
 }

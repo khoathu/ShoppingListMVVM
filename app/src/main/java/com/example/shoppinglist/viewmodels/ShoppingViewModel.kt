@@ -4,19 +4,22 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.shoppinglist.model.ShoppingItem
 import com.example.shoppinglist.repository.ShoppingRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ShoppingViewModel(
-    val shoppingRepository: ShoppingRepository
+@HiltViewModel
+class ShoppingViewModel @Inject constructor(
+    private val shoppingRepositoryInterface: ShoppingRepository
 ) : ViewModel() {
 
     fun upsertShoppingItem(item: ShoppingItem) = viewModelScope.launch {
-        shoppingRepository.upsertShoppingItem(item)
+        shoppingRepositoryInterface.upsertShoppingItem(item)
     }
 
     fun deleteShoppingItem(item: ShoppingItem) = viewModelScope.launch {
-        shoppingRepository.deleteShoppingItem(item)
+        shoppingRepositoryInterface.deleteShoppingItem(item)
     }
 
-    fun getShoppingItems() = shoppingRepository.getShoppingItems()
+    fun getShoppingItems() = shoppingRepositoryInterface.getShoppingItems()
 }
